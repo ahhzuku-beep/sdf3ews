@@ -1,0 +1,101 @@
+/* Modern minimal dark theme */
+:root{
+  --bg:#000000;
+  --muted:rgba(255,255,255,0.55);
+  --soft:rgba(255,255,255,0.12);
+  --accent:#ffffff;
+}
+
+/* ensure the minimal wrap uses true black background to match video */
+.minimal-wrap{ background:#000000; }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  background:var(--bg);
+  color:var(--accent);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+}
+.container{
+  width:min(720px, 96%);
+  max-width:720px;
+  position:relative;
+  z-index:1;
+  padding-top: calc(14vh + 36px);
+}
+.top-hero{position:relative;top:0;left:0;width:100%;height:auto;min-height:90px;z-index:0;display:flex;align-items:center;justify-content:center;padding:12px 0}
+.top-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,3,3,0.0) 0%, rgba(3,3,3,0.6) 70%);pointer-events:none}
+.video-wrap{width:100%;max-width:420px;padding:6px}
+.logo-video{width:100%;height:100%;max-width:none;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+/* no hover effects */
+.logo-fallback{border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.site-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.rotator{flex:1;overflow:hidden;min-height:56px;display:flex;align-items:center}
+.rot-item{font-size:28px;font-weight:700;letter-spacing:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.subtitle{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-left:16px}
+.lead{font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+.video-wrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
+.logo-video{width:100%;height:100%;max-width:none;border-radius:0;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+/* Logo image styling */
+.logo-wrap{display:flex;align-items:center;justify-content:center;width:100%}
+.logo-img{width:100%;max-width:320px;height:auto;background:#000;padding:8px;border-radius:12px;display:block;object-fit:contain;box-shadow:0 18px 50px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+/* no hover effects */
+/* remove old fallback styles */
+
+@media (max-width:520px){ .logo-video{max-width:360px;aspect-ratio:1/1;border-radius:4px} .logo-fallback{max-width:360px} .form-logo-img{width:120px;padding:8px;border-radius:6px} }
+/* Form logo above fields */
+.form-logo{display:block;text-align:center;margin-bottom:14px}
+.form-logo-img{width:160px;height:auto;object-fit:contain;border-radius:8px;background:#000;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.03);display:inline-block}
+
+form{display:grid;gap:14px}
+label{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+input,textarea{
+  width:100%;
+  padding:14px 16px;
+  background:transparent;
+  border:1px solid var(--soft);
+  color:var(--accent);
+  font-size:16px;
+  border-radius:2px;
+}
+input::placeholder, textarea::placeholder{color:rgba(255,255,255,0.28)}
+input:focus,textarea:focus{outline:none;border-color:rgba(255,255,255,0.6);box-shadow:0 4px 18px rgb(0, 0, 0)}
+.form-row{display:flex;align-items:center;gap:16px;margin-top:8px}
+.btn{background:#fff;color:#000;border:none;padding:12px 20px;text-transform:uppercase;letter-spacing:2px;font-weight:700;cursor:pointer;border-radius:2px}
+#status{color:var(--muted);font-size:14px}
+.status-sending{opacity:0.9}
+.status-success{color:#a6e3a1}
+.status-error{color:#ffb4b4}
+.site-footer{margin-top:40px;color:var(--muted);font-size:12px;letter-spacing:1px}
+@media (max-width:420px){.brand{font-size:28px;letter-spacing:3px}.container{padding:0 10px}}
+
+/* Minimal centered layout overrides */
+:root{ --field-width: min(420px, 86vw); --field-height:56px; }
+.minimal-wrap{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; width:100%; min-height:100vh; box-sizing:border-box; padding:20px; }
+
+/* visitor counter (top-center) */
+.visitor-counter{ position:fixed; top:18px; left:50%; transform:translateX(-50%); z-index:9999; background:rgba(255,255,255,0.03); color:var(--accent); padding:8px 16px 8px 12px; border-radius:6px; font-weight:700; font-size:14px; pointer-events:none; box-shadow:none; display:flex; align-items:center; gap:8px; }
+.live-dot{ display:inline-block; width:10px; height:10px; border-radius:50%; background:#ff2d2d; margin-right:6px; box-shadow:0 0 6px 2px #ff2d2d66; animation:pulse-dot 1.2s infinite; }
+@keyframes pulse-dot {
+  0% { box-shadow:0 0 6px 2px #ff2d2d66, 0 0 0 0 #ff2d2d44; }
+  70% { box-shadow:0 0 6px 2px #ff2d2d66, 0 0 0 8px #ff2d2d22; }
+  100% { box-shadow:0 0 6px 2px #ff2d2d66, 0 0 0 0 #ff2d2d44; }
+}
+@media (max-width:520px){ .visitor-counter{ top:12px; left:50%; transform:translateX(-50%); font-size:13px; padding:6px 12px 6px 8px } .live-dot{ width:8px; height:8px; margin-right:4px; } }
+.form-logo-img{ width:var(--field-width); height:auto; object-fit:cover; background:transparent; padding:0; border-radius:0; box-shadow:none; border:none; display:block; }
+form{ width:100%; display:flex; flex-direction:column; gap:12px; align-items:center; }
+input,textarea,button{ width:var(--field-width); height:var(--field-height); padding:12px 16px; border:1px solid var(--soft); border-radius:6px; font-size:16px; background:transparent; color:var(--accent); }
+.consent-wrap{ width:var(--field-width); text-align:left; color:var(--muted); font-size:14px }
+.consent-wrap input{ width:auto; height:auto; margin-right:8px; }
+button{ background:#fff; color:#000; border:none; font-weight:700; cursor:pointer; }
+.status{ color:var(--muted); font-size:14px; margin-top:8px; text-align:center; min-height:20px; }
+.lead{ color:var(--accent); font-size:18px; margin:0 }
+.subtle{ color:var(--muted); margin:0 0 10px 0 }
+@media (max-width:520px){ :root{ --field-width: min(320px, 86vw); --field-height:48px } .form-logo-img{ padding:0; border-radius:0 } }
